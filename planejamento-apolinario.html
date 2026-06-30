@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planejamento Digital — José Apolinário dos Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,600;0,700;0,800;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:#F5F7FC;
+  color:#0A1428;
+  font-family:'Barlow',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0A2EAE 0%,#1A4AC0 100%);
+  padding:80px 40px;
+  position:relative;overflow:hidden;
+}
+.hero-line{
+  position:absolute;left:0;top:0;bottom:0;
+  width:8px;background:#F5A800;
+}
+.hero-circle{
+  position:absolute;border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  pointer-events:none;
+}
+.hc1{width:500px;height:500px;top:-200px;right:-100px;}
+.hc2{width:250px;height:250px;bottom:-100px;left:30%;}
+.hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:2;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-bottom:20px;
+}
+.hero-tag::before{content:'';width:24px;height:2px;background:#F5A800;}
+.hero h1{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(36px,5vw,64px);
+  color:#FFFFFF;text-transform:uppercase;
+  line-height:1;margin-bottom:12px;
+}
+.hero h1 span{color:#F5A800;}
+.hero p{
+  font-size:17px;color:rgba(255,255,255,0.65);
+  max-width:580px;margin-bottom:36px;
+}
+.hero-pills{display:flex;gap:12px;flex-wrap:wrap;}
+.pill{
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);
+  color:#FFFFFF;font-weight:700;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:8px 18px;border-radius:2px;
+  display:flex;align-items:center;gap:8px;
+}
+.pill svg{flex-shrink:0;}
+
+/* CONTAINER */
+.container{max-width:1000px;margin:0 auto;padding:0 40px;}
+.sec{padding:80px 0;}
+.sec-blue{background:#0B2EAE;}
+.sec-white{background:#FFFFFF;}
+.sec-gray{background:#F5F7FC;}
+
+/* SECTION HEADER */
+.s-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:#0B2EAE;margin-bottom:10px;
+}
+.s-tag::before{content:'';width:28px;height:3px;background:#F5A800;border-radius:1px;}
+.sec-blue .s-tag{color:rgba(255,255,255,0.5);}
+.s-title{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(28px,4vw,46px);text-transform:uppercase;
+  color:#0A1428;line-height:1;margin-bottom:0;
+}
+.s-title .blue{color:#0B2EAE;}
+.s-title .yellow{color:#F5A800;}
+.sec-blue .s-title{color:#FFFFFF;}
+
+/* OVERVIEW CARDS */
+.overview{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  margin-top:40px;
+}
+.ov-card{
+  background:#FFFFFF;border-radius:4px;
+  border-top:5px solid #0B2EAE;
+  padding:22px;
+  box-shadow:0 2px 16px rgba(11,46,174,0.08);
+}
+.ov-card.yellow{border-top-color:#F5A800;}
+.ov-ico{
+  width:40px;height:40px;border-radius:4px;
+  background:#EEF2FF;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;color:#0B2EAE;
+}
+.ov-card.yellow .ov-ico{background:#FFF8E6;color:#F5A800;}
+.ov-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:16px;text-transform:uppercase;margin-bottom:6px;}
+.ov-desc{font-size:13px;color:#6A7A9A;line-height:1.5;}
+
+/* TIMELINE */
+.timeline{margin-top:48px;position:relative;}
+.timeline::before{
+  content:'';
+  position:absolute;left:140px;top:0;bottom:0;
+  width:3px;background:#E0E8F8;
+}
+.tl-item{
+  display:grid;grid-template-columns:120px 1fr;gap:40px;
+  margin-bottom:0;position:relative;
+}
+.tl-date-col{text-align:right;padding-top:28px;}
+.tl-date{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:14px;color:#0B2EAE;text-transform:uppercase;letter-spacing:.06em;
+  display:block;line-height:1.2;
+}
+.tl-content{
+  padding:0 0 48px 40px;
+  position:relative;
+}
+.tl-content::before{
+  content:'';
+  position:absolute;left:-9px;top:28px;
+  width:18px;height:18px;border-radius:50%;
+  background:#0B2EAE;border:4px solid #FFFFFF;
+  box-shadow:0 0 0 3px #0B2EAE;
+  z-index:1;
+}
+.tl-item.phase2 .tl-content::before{background:#1A6AEA;box-shadow:0 0 0 3px #1A6AEA;}
+.tl-item.phase3 .tl-content::before{background:#F5A800;box-shadow:0 0 0 3px #F5A800;}
+.tl-item.phase4 .tl-content::before{background:#E02020;box-shadow:0 0 0 3px #E02020;}
+.tl-item:last-child .tl-content{padding-bottom:0;}
+.phase-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Oswald',sans-serif;font-weight:600;
+  font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  padding:5px 14px;border-radius:2px;margin-bottom:14px;
+}
+.badge-1{background:#EEF2FF;color:#0B2EAE;}
+.badge-2{background:#E6F0FF;color:#1A6AEA;}
+.badge-3{background:#FFF8E6;color:#B87800;}
+.badge-4{background:#FFEEEE;color:#E02020;}
+.tl-heading{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:22px;text-transform:uppercase;
+  color:#0A1428;margin-bottom:8px;
+}
+.tl-desc{font-size:15px;color:#3A4A6A;margin-bottom:16px;line-height:1.7;}
+.tl-deliverables{
+  display:flex;flex-direction:column;gap:8px;
+  margin-bottom:16px;
+}
+.tl-del{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:#3A4A6A;
+}
+.tl-del svg{flex-shrink:0;margin-top:2px;color:#0B2EAE;}
+.tl-item.phase3 .tl-del svg{color:#F5A800;}
+.tl-item.phase4 .tl-del svg{color:#E02020;}
+.tl-freq{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#EEF2FF;
+  border-left:3px solid #0B2EAE;
+  padding:10px 14px;border-radius:0 4px 4px 0;
+  font-weight:700;font-size:14px;color:#0B2EAE;
+}
+.tl-item.phase3 .tl-freq{background:#FFF8E6;border-left-color:#F5A800;color:#B87800;}
+.tl-item.phase4 .tl-freq{background:#FFEEEE;border-left-color:#E02020;color:#E02020;}
+
+/* PRICE SECTION */
+.price-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  margin-top:40px;
+}
+.price-card{
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:4px;padding:28px;
+}
+.price-card.featured{
+  background:rgba(245,168,0,0.15);
+  border-color:#F5A800;
+}
+.price-phase{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);margin-bottom:8px;display:block;
+}
+.price-card.featured .price-phase{color:#F5A800;}
+.price-label{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:18px;text-transform:uppercase;
+  color:#FFFFFF;margin-bottom:16px;
+}
+.price-value{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:38px;color:#FFFFFF;line-height:1;margin-bottom:4px;
+}
+.price-value span{font-size:16px;font-weight:400;color:rgba(255,255,255,0.5);}
+.price-card.featured .price-value{color:#F5A800;}
+.price-period{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:20px;}
+.price-divider{height:1px;background:rgba(255,255,255,0.1);margin-bottom:16px;}
+.price-items{display:flex;flex-direction:column;gap:8px;}
+.price-item{
+  display:flex;align-items:flex-start;gap:8px;
+  font-size:13px;color:rgba(255,255,255,0.65);
+}
+.price-item svg{flex-shrink:0;color:#F5A800;}
+.price-note{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:4px;padding:16px 20px;
+  font-size:13px;color:rgba(255,255,255,0.5);
+  line-height:1.6;margin-top:16px;
+  grid-column:1/-1;
+}
+
+/* AVULSO */
+.avulso-card{
+  background:#FFFFFF;border-radius:4px;
+  border-left:5px solid #F5A800;
+  padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:0 2px 16px rgba(11,46,174,0.08);
+  margin-top:16px;flex-wrap:wrap;
+}
+.avulso-info{}
+.avulso-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin-bottom:4px;}
+.avulso-desc{font-size:14px;color:#6A7A9A;}
+.avulso-price{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:28px;color:#F5A800;white-space:nowrap;
+}
+
+/* FOOTER */
+.footer{
+  background:#0B2EAE;
+  padding:40px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-name{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:20px;text-transform:uppercase;color:#FFFFFF;
+}
+.footer-name span{color:#F5A800;}
+.footer-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-top:4px;
+}
+.footer-right{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:rgba(255,255,255,0.3);
+  letter-spacing:.06em;text-align:right;
+}
+
+@media(max-width:768px){
+  .overview{grid-template-columns:1fr 1fr;}
+  .price-grid{grid-template-columns:1fr;}
+  .timeline::before{left:100px;}
+  .tl-item{grid-template-columns:80px 1fr;gap:24px;}
+  .container{padding:0 24px;}
+  .sec{padding:60px 0;}
+  .hero{padding:60px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Planejamento de Presença Digital</div>
+    <h1>José Apolinário<br><span>dos Santos</span></h1>
+    <p>Estratégia completa de construção de imagem digital de 2026 até a campanha de 2028. Cada fase com objetivos claros, entregas definidas e progressão natural.</p>
+    <div class="hero-pills">
+      <div class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v5M15 4v5"/></svg>
+        Jul 2026 a 2028
+      </div>
+      <div class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Instagram + Facebook
+      </div>
+      <div class="pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        4 Fases
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISÃO GERAL -->
+<div class="sec sec-white">
+  <div class="container">
+    <div class="s-tag">Visão Geral</div>
+    <div class="s-title">O que está <span class="blue">incluso</span></div>
+    <div class="overview">
+      <div class="ov-card">
+        <div class="ov-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div class="ov-title">Edição de vídeo</div>
+        <div class="ov-desc">Edição dos vídeos gravados pelo cliente para publicação no Instagram e Facebook.</div>
+      </div>
+      <div class="ov-card yellow">
+        <div class="ov-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div class="ov-title">Legendas estratégicas</div>
+        <div class="ov-desc">Textos escritos com linguagem adequada para cada fase da construção de imagem.</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v5M15 4v5"/></svg>
+        </div>
+        <div class="ov-title">Programação e publicação</div>
+        <div class="ov-desc">Agendamento nos melhores dias e horários para o público de Santo Ângelo.</div>
+      </div>
+      <div class="ov-card yellow">
+        <div class="ov-ico">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.72 16.92z"/></svg>
+        </div>
+        <div class="ov-title">Gestão das redes</div>
+        <div class="ov-desc">Gerenciamento do Instagram e Facebook, monitoramento e acompanhamento mensal.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE DAS FASES -->
+<div class="sec sec-gray">
+  <div class="container">
+    <div class="s-tag">Estratégia por fase</div>
+    <div class="s-title">O caminho até <span class="yellow">2028</span></div>
+    <div class="timeline">
+
+      <!-- FASE 1 -->
+      <div class="tl-item">
+        <div class="tl-date-col">
+          <span class="tl-date">Jul 2026<br>a<br>Jun 2027</span>
+        </div>
+        <div class="tl-content">
+          <span class="phase-badge badge-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Fase 1
+          </span>
+          <div class="tl-heading">Construção de Presença</div>
+          <div class="tl-desc">Apresentar quem é o Apolinário antes de qualquer ruído. Trajetória militar, trabalho no Lions Clube, viagens e o lado humano. Sem mencionar política — foco total na pessoa e nas conquistas.</div>
+          <div class="tl-deliverables">
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>1 post por semana</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Edição de vídeo + legenda + publicação</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gerenciamento do Instagram e Facebook</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tom: humano, narrativo, sem política</div>
+          </div>
+          <div class="tl-freq">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+            1 post / semana · R$ 400 a R$ 500/mês
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="tl-item phase2">
+        <div class="tl-date-col">
+          <span class="tl-date">Jan 2027<br>a<br>Jun 2027</span>
+        </div>
+        <div class="tl-content">
+          <span class="phase-badge badge-2">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            Fase 2
+          </span>
+          <div class="tl-heading">Consolidação de Autoridade</div>
+          <div class="tl-desc">Aprofundar os temas e começar a construir opinião sobre temas da cidade, sem citar política. Reels respondendo perguntas, bastidores de ações do Lions e opiniões sobre educação, segurança e desenvolvimento de Santo Ângelo.</div>
+          <div class="tl-deliverables">
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2 posts por semana</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Edição de vídeo + legenda + publicação</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Facebook espelhando o Instagram</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tom: opinativo sobre temas locais, sem partido</div>
+          </div>
+          <div class="tl-freq" style="background:#E6F0FF;border-left-color:#1A6AEA;color:#1A6AEA;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+            2 posts / semana · R$ 700 a R$ 900/mês
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="tl-item phase3">
+        <div class="tl-date-col">
+          <span class="tl-date" style="color:#B87800;">Jul 2027<br>a<br>Dez 2027</span>
+        </div>
+        <div class="tl-content">
+          <span class="phase-badge badge-3">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Fase 3
+          </span>
+          <div class="tl-heading">Pré-Campanha</div>
+          <div class="tl-desc">Quando o período legal permitir, o conteúdo começa a sinalizar a candidatura. Aumento de frequência, stories mais ativos e início de engajamento direto com a comunidade de Santo Ângelo. Consulta com advogado eleitoral recomendada antes desta fase.</div>
+          <div class="tl-deliverables">
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>3 a 4 posts por semana</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Stories ativos no Instagram</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Engajamento com comunidade local</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tom: liderança local, proximidade com o povo</div>
+          </div>
+          <div class="tl-freq">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+            3 a 4 posts / semana · R$ 700 a R$ 900/mês
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 4 -->
+      <div class="tl-item phase4">
+        <div class="tl-date-col">
+          <span class="tl-date" style="color:#E02020;">2028<br>Campanha</span>
+        </div>
+        <div class="tl-content">
+          <span class="phase-badge badge-4">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Fase 4
+          </span>
+          <div class="tl-heading">Campanha Eleitoral</div>
+          <div class="tl-desc">Volume máximo de conteúdo, tráfego pago eleitoral e presença diária nas redes. Valor negociado à parte por ser uma operação de outra escala, com equipe e verba específica de campanha.</div>
+          <div class="tl-deliverables">
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>5 posts por semana + stories diários</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gestão de tráfego pago eleitoral</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Monitoramento em tempo real</div>
+            <div class="tl-del"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Relatório semanal de desempenho</div>
+          </div>
+          <div class="tl-freq" style="background:#FFEEEE;border-left-color:#E02020;color:#E02020;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg>
+            5 posts / semana · Valor a negociar
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- INVESTIMENTO -->
+<div class="sec sec-blue">
+  <div class="container">
+    <div class="s-tag">Investimento</div>
+    <div class="s-title">Valores por <span style="color:#F5A800;">fase</span></div>
+    <div class="price-grid" style="margin-top:40px;">
+
+      <div class="price-card">
+        <span class="price-phase">Fase 1 · Jul 2026 a Jun 2027</span>
+        <div class="price-label">Construção de Presença</div>
+        <div class="price-value">R$ 450<span>/mês</span></div>
+        <div class="price-period">1 post por semana · 12 meses</div>
+        <div class="price-divider"></div>
+        <div class="price-items">
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Edição de vídeo</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Legendas estratégicas</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Programação e publicação</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gestão Instagram + Facebook</div>
+        </div>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-phase">Fase 2 e 3 · Jan 2027 a Dez 2027</span>
+        <div class="price-label">Consolidação + Pré-Campanha</div>
+        <div class="price-value">R$ 800<span>/mês</span></div>
+        <div class="price-period">2 a 3 posts por semana · 12 meses</div>
+        <div class="price-divider"></div>
+        <div class="price-items">
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Edição de vídeo</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Legendas estratégicas</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Programação e publicação</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gestão Instagram + Facebook</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Stories ativos</div>
+        </div>
+      </div>
+
+      <div class="price-card">
+        <span class="price-phase">Fase 4 · Campanha 2028</span>
+        <div class="price-label">Campanha Eleitoral</div>
+        <div class="price-value" style="font-size:28px;">A negociar</div>
+        <div class="price-period">5 posts/semana + tráfego pago</div>
+        <div class="price-divider"></div>
+        <div class="price-items">
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gestão completa de campanha</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tráfego pago eleitoral</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Monitoramento diário</div>
+          <div class="price-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Relatório semanal</div>
+        </div>
+      </div>
+
+      <div class="price-note">
+        ⚠️ Os valores das Fases 1, 2 e 3 não incluem verba de impulsionamento/anúncio. Caso haja interesse em tráfego pago antes da campanha, o valor do investimento em mídia é negociado à parte e gerenciado pelo cliente.
+      </div>
+
+    </div>
+
+    <!-- AVULSO -->
+    <div class="s-tag" style="margin-top:48px;">Serviço Avulso</div>
+    <div class="s-title" style="color:#FFFFFF;">Página de <span style="color:#F5A800;">Apresentação</span></div>
+    <div class="avulso-card">
+      <div class="avulso-info">
+        <div class="avulso-title">Landing Page de Apresentação</div>
+        <div class="avulso-desc">Página web profissional com toda a trajetória do Apolinário, fotos, conquistas, Lions Clube e viagens. Link fixo na bio do Instagram e Facebook. Entrega única, sem mensalidade.</div>
+      </div>
+      <div class="avulso-price">R$ 300 a R$ 500</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <div class="footer-name">José <span>Apolinário</span> dos Santos</div>
+    <div class="footer-sub">Planejamento Digital · Santo Ângelo · RS</div>
+  </div>
+  <div class="footer-right">
+    Preparado por Pedro Munaretto<br>
+    @pedro_munaretto
+  </div>
+</div>
+
+</body>
+</html>
